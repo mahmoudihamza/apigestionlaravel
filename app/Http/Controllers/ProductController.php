@@ -45,16 +45,16 @@ class ProductController extends Controller
      * @param  \App\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todo $todo)
+    public function update(Request $request, Product $product)
     {
         $data = $request->validate([
-            'title' => 'required|string',
-            'completed' => 'required|boolean',
+            'designation' => 'required|string',
+            'prix_achat' => 'required',
         ]);
 
-        $todo->update($data);
+        $product->update($data);
 
-        return response($todo, 200);
+        return response($product, 200);
     }
 
     public function updateAll(Request $request)

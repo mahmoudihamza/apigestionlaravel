@@ -19,6 +19,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/products', 'ProductController@index');
 Route::post('/products', 'ProductController@store');
+Route::patch('/products/{product}', 'ProductController@update');
 
 Route::delete('/products/{product}', 'ProductController@destroy');
+
+Route::get('/teams', 'TeamController@index');
+
+
+Route::post('/login', 'AuthController@login');
+Route::post('/register', 'AuthController@register');
+Route::middleware('auth:api')->post('/logout', 'AuthController@logout');
+
+
+
 
